@@ -8,4 +8,5 @@ steps:
     GOOS: linux
     GOARCH: amd64
   commands:
+  - echo hello world
   - go run main.go &
