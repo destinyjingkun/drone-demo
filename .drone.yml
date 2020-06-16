@@ -21,4 +21,4 @@ steps:
   commands:
   - echo hello world
   when:
-    branch: [master]
+    branch: [dev]
