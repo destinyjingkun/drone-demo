@@ -1,0 +1,7 @@
+kind: pipeline
+type: docker
+steps:
+- name: dev
+  image: golang:1.12
+  commands:
+  - go run main.go
