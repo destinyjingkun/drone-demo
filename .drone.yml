@@ -12,13 +12,13 @@ steps:
 
 ---
 kind: pipeline
-type: exec
+type: docker
 name: frontend
 
 steps:
 - name: build
   image: golang:1.12
   commands:
-  - echo exec here
+  - echo hello world
   when:
     branch: [master]
