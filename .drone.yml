@@ -2,6 +2,7 @@ kind: pipeline
 type: docker
 steps:
 - name: dev
+  pull: if-no-exists
   image: golang:1.12
   commands:
-  - go run main.go
+  - echo hello world
