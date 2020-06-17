@@ -7,6 +7,7 @@ steps:
 - name: ssh commands
   image: docker
   environment:
-    DROME_SSH_PWD: $${DROME_SSH_PWD}
+    DROME_SSH_PWD:
+      from_secret: DROME_SSH_PWD
   commands:
   - echo $${DROME_SSH_PWD}
