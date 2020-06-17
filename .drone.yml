@@ -15,7 +15,7 @@ steps:
   - echo pwd $DRONE_SSH_PWD
   - echo key $DRONE_SSH_KEY
 - name: ssh commands
-  image: plugins/ssh
+  image: appleboy/drone-ssh
   settings:
     host:
       from_secret: ssh_host
