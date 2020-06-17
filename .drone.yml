@@ -26,4 +26,4 @@ steps:
     key:
       from_secret: ssh_key
     script:
-      - docker ps -a
+      - docker ps
