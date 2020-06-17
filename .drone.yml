@@ -23,7 +23,5 @@ steps:
     password:
       from_secret: ssh_pwd
     port: 22
-    key:
-      from_secret: ssh_key
     script:
       - docker ps
