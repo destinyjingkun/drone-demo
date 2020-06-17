@@ -4,7 +4,7 @@ type: docker
 name: deploy
 
 steps:
-- name: ssh commands
+- name: test
   image: docker
   environment:
     DRONE_SSH_PWD:
