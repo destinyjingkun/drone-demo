@@ -7,7 +7,10 @@ steps:
 - name: ssh commands
   image: docker
   environment:
-    DROME_SSH_PWD:
-      from_secret: DROME_SSH_PWD
+    DRONE_SSH_PWD:
+      from_secret: DRONE_SSH_PWD
+    DRONE_SSH_KEY:
+      from_secret: DRONE_SSH_KEY
   commands:
-  - echo $${DROME_SSH_PWD}
+  - echo pwd $DRONE_SSH_PWD
+  - echo key $DRONE_SSH_KEY
