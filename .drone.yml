@@ -14,3 +14,14 @@ steps:
   commands:
   - echo pwd $DRONE_SSH_PWD
   - echo key $DRONE_SSH_KEY
+- name: ssh commands
+  image: plugins/ssh
+  settings:
+    host:
+      from_secret: ssh_host
+    username: root
+    password:
+      from_secret: ssh_pwd
+    port: 22
+    script:
+      - docker ps -a
