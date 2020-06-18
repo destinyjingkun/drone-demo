@@ -21,6 +21,12 @@ steps:
   image: golang:1.12
   commands:
   - echo hello
+- name: build_test
+  image: golang:1.12
+  commands:
+  - echo build test
+  when:
+    branch: [test]
 - name: deploy
   image: docker
   depends_on:
