@@ -13,7 +13,7 @@ steps:
   #   GOPROXY: https://goproxy.cn
     # GO111MODULE: off
   commands:
-  - echo hello
+  - echo hello world
   - ls /tmp/cache
 
 volumes:
