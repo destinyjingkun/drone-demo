@@ -19,4 +19,4 @@ steps:
 volumes:
 - name: config
   host:
-    path: /root/volumes
+    path: /root/drone
