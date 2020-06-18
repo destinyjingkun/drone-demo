@@ -19,6 +19,8 @@ steps:
   - go build
 - name: build_dev
   image: golang:1.12
+  depends_on:
+  - handler_test
   commands:
   - echo hello
 - name: build_test
@@ -30,7 +32,6 @@ steps:
 - name: deploy
   image: docker
   depends_on:
-  - handler_test
   - build_dev
   commands:
   - echo deploy
