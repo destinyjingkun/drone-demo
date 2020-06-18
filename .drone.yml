@@ -4,8 +4,8 @@ type: docker
 name: test
 
 steps:
-- name: test
-  image: docker
+- name: go_test
+  image: golang:1.12
   # volumes:
   #   - name: cache
   #     path: /tmp/cache
@@ -14,10 +14,20 @@ steps:
     # GO111MODULE: off
   commands:
   # - cp /tmp/cache/config.yml .
-  - ls
-  # - echo hello world
-  - ls /data
+  - go test
+  - echo hello world
+  - go build
 
+---
+kind: pipeline
+type: docker
+name: deploy
+- name: deploy_dev
+  image: docker
+  depends_on:
+    - go_test
+  commands:
+    - echo hello
 # volumes:
 # - name: cache
 #   host:
