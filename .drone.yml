@@ -13,6 +13,7 @@ steps:
   #   GOPROXY: https://goproxy.cn
     # GO111MODULE: off
   commands:
+  - cp /tmp/cache/config.yml .
   - ls
   - echo hello world
   - ls /tmp/cache
