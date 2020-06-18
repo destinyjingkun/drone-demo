@@ -8,13 +8,13 @@ steps:
   image: docker
   volumes:
     - name: cache
-      path: /data
+      path: /tmp/cache
   # environment:
   #   GOPROXY: https://goproxy.cn
     # GO111MODULE: off
   commands:
   - echo hello world
-  - ls /data/
+  - ls /tmp/cache
 
 volumes:
 - name: cache
