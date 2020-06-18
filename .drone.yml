@@ -7,7 +7,7 @@ steps:
 - name: test
   image: docker
   volumes:
-    - name: config
+    - name: cache
       path: /tmp/cache
   # environment:
   #   GOPROXY: https://goproxy.cn
@@ -17,6 +17,6 @@ steps:
   - ls /tmp/cache
 
 volumes:
-- name: config
+- name: cache
   host:
     path: /root/drone
