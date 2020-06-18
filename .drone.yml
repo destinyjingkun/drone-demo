@@ -6,17 +6,17 @@ name: test
 steps:
 - name: test
   image: docker
-  volumes:
-    - name: config
-      path: /tmp/cache
+  # volumes:
+  #   - name: config
+  #     path: /tmp/cache
   # environment:
   #   GOPROXY: https://goproxy.cn
     # GO111MODULE: off
   commands:
   - echo hello
-  - ls /tmp/cache/
+  - ls /data/
 
-volumes:
-- name: config
-  host:
-    path: /root/drone
+# volumes:
+# - name: config
+#   host:
+#     path: /root/drone
