@@ -1,27 +1,22 @@
 ---
 kind: pipeline
 type: docker
-name: deploy
+name: test
 
 steps:
 - name: test
   image: docker
-  environment:
-    DRONE_SSH_PWD:
-      from_secret: DRONE_SSH_PWD
-    DRONE_SSH_KEY:
-      from_secret: DRONE_SSH_KEY
+  volumes:
+    - name: config
+      path: /tmp/cache
+  # environment:
+  #   GOPROXY: https://goproxy.cn
+    # GO111MODULE: off
   commands:
-  - echo pwd $DRONE_SSH_PWD
-  - echo key $DRONE_SSH_KEY
-- name: ssh commands
-  image: appleboy/drone-ssh
-  settings:
-    host:
-      from_secret: ssh_host
-    username: root
-    password:
-      from_secret: ssh_pwd
-    port: 22
-    script:
-      - docker ps
+  - echo hello
+  - ls /tmp/cache/
+
+volumes:
+- name: config
+  host:
+    path: /root/volumes
