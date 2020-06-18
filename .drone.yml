@@ -4,7 +4,7 @@ type: docker
 name: test
 
 steps:
-- name: go_test
+- name: handler_test
   image: golang:1.12
   # volumes:
   #   - name: cache
@@ -17,18 +17,41 @@ steps:
   - go test
   - echo hello world
   - go build
-
----
-kind: pipeline
-type: docker
-name: deploy
-- name: deploy_dev
+- name: build_dev
+  image: golang:1.12
+  commands:
+  - echo hello
+- name: deploy
   image: docker
   depends_on:
-    - go_test
+  - handler_test
+  - build_dev
   commands:
-    - echo hello
-# volumes:
+  - echo deploy
+
+# ---
+# kind: pipeline
+# type: docker
+# name: deploy
+
+# steps:
+# - name: deploy_dev
+#   image: docker
+#   depends_on:
+#   - handler_test
+#   commands:
+#   - echo hello
+# ---
+# kind: pipeline
+# type: docker
+# name: deploy
+# - name: deploy_dev
+#   image: docker
+#   depends_on:
+#     - go_test
+#   commands:
+#     - echo hello
+# # volumes:
 # - name: cache
 #   host:
 #     path: /root/drone
