@@ -12,6 +12,7 @@ steps:
   # environment:
   #   GOPROXY: https://goproxy.cn
     # GO111MODULE: off
+  privileged: true
   commands:
   - echo hello world
   - ls /data/
