@@ -22,7 +22,8 @@ steps:
   depends_on:
   - handler_test
   commands:
-  - echo hello
+  - go build
+  - mv drone-demo /data
 - name: build_test
   image: golang:1.12
   commands:
