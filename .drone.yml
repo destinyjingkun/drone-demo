@@ -35,17 +35,18 @@ steps:
   depends_on:
   - build_dev
   settings:
-    host: 8.210.110.237
+    host: 
+      from_secret: ssh_host
     username: root
     port: 22
-    key:
-      from_secret: ssh_key
+    password:
+      from_secret: ssh_pwd
     script:
       - cd /drone
       - docker stop drone-demo
       - docker rm drone-demo
       - docker build -t drone-demo .
-      
+
 
 # ---
 # kind: pipeline
