@@ -41,11 +41,13 @@ steps:
     port: 22
     password:
       from_secret: ssh_pwd
-    script:
+    script_stop:
       - cd drone
       - docker stop drone-demo
       - docker rm drone-demo
       - docker build -t drone-demo .
+      # - lsof -i :20081 | grep -v PID |awk '{print $2}' | xargs kill -9
+      # - nohup swagger serve --port 20081 --no-open  swagger.json &
 
 
 # ---
