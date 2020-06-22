@@ -41,7 +41,8 @@ steps:
     port: 22
     password:
       from_secret: ssh_pwd
-    script_stop:
+    script_stop: true
+    script:
       - cd drone
       - docker stop drone-demo
       - docker rm drone-demo
