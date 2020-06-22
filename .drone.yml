@@ -35,7 +35,8 @@ steps:
   depends_on:
   - build_dev
   commands:
-  - echo deploy
+  - cd /data
+  - docker build -t drone-demo .
 
 # ---
 # kind: pipeline
